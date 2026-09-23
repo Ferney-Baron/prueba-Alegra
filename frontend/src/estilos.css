@@ -1,0 +1,134 @@
+:root {
+  --fondo: #eef1f4;
+  --tarjeta: #ffffff;
+  --texto: #1f2933;
+  --suave: #667080;
+  --borde: #d8dee6;
+  --borde-suave: #e8ecf1;
+  --primario: #c62828;
+  --primario-hover: #a51f1f;
+  --primario-suave: #fdecec;
+  --error: #b91c1c;
+  --aviso: #fff7ed;
+  --aviso-borde: #fdba74;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--texto);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fondo); }
+
+/* ---------- Barra superior de la empresa ---------- */
+.barra-empresa { background: var(--primario); color: #fff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); }
+.barra-empresa-interior { max-width: 1100px; margin: 0 auto; padding: 12px 16px; display: flex; align-items: center; gap: 14px; }
+.logo { width: 42px; height: 42px; flex: none; border-radius: 8px; background: #fff; color: var(--primario); display: grid; place-items: center; font-weight: 800; font-size: 1.1rem; letter-spacing: 0.02em; }
+.barra-empresa-nombre { font-weight: 700; font-size: 1.05rem; line-height: 1.2; }
+.barra-empresa-eslogan { font-size: 0.8rem; opacity: 0.9; }
+.barra-empresa-contacto { margin-left: auto; text-align: right; font-size: 0.78rem; opacity: 0.92; line-height: 1.5; }
+
+.contenedor { max-width: 1100px; margin: 0 auto; padding: 20px 16px 48px; }
+
+/* ---------- Tarjetas y paneles ---------- */
+.tarjeta, .panel { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: 10px; margin-bottom: 18px; box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04); }
+.tarjeta { padding: 20px; }
+.panel { overflow: hidden; }
+.panel-titulo { background: var(--primario); color: #fff; padding: 11px 18px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.panel-titulo h2 { margin: 0; font-size: 1.05rem; letter-spacing: 0.02em; }
+.panel-titulo span { font-size: 0.85rem; opacity: 0.92; }
+.panel-cuerpo { padding: 18px; }
+h2 { margin: 0 0 12px; font-size: 1.15rem; }
+
+/* ---------- Zona de carga ---------- */
+.zona { border: 2px dashed var(--borde); border-radius: 8px; min-height: 150px; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--suave); cursor: pointer; padding: 12px; }
+.zona.arrastrando { border-color: var(--primario); background: var(--primario-suave); }
+.zona img { max-width: 100%; max-height: 320px; border-radius: 6px; }
+.acciones { display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 14px; }
+.nombre-archivo { color: var(--suave); font-size: 0.9rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ---------- Botones ---------- */
+button { background: var(--primario); color: #fff; border: 0; border-radius: 6px; padding: 9px 16px; font-size: 0.93rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+button:hover:not(:disabled) { background: var(--primario-hover); }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+button.secundario { background: transparent; color: var(--primario); border: 1px solid var(--primario); }
+button.secundario:hover:not(:disabled) { background: var(--primario-suave); }
+button.icono { background: #f2f4f7; color: var(--suave); padding: 5px 9px; font-size: 0.9rem; line-height: 1; }
+button.icono:hover { background: #e4e8ee; color: var(--texto); }
+button.icono.peligro:hover { background: #fee2e2; color: var(--error); }
+.error { color: var(--error); margin: 10px 0 0; }
+.spinner { width: 14px; height: 14px; border: 2px solid rgba(255, 255, 255, 0.4); border-top-color: #fff; border-radius: 50%; animation: girar 0.8s linear infinite; }
+@keyframes girar { to { transform: rotate(360deg); } }
+
+/* ---------- Campos ---------- */
+.campo { display: flex; flex-direction: column; gap: 4px; font-size: 0.8rem; color: var(--suave); margin-bottom: 14px; }
+.campo input, .campo select, .campo textarea { padding: 8px 10px; border: 1px solid var(--borde); border-radius: 6px; font-size: 0.92rem; color: var(--texto); font-family: inherit; background: #fff; }
+.campo input:focus, .campo select:focus, .campo textarea:focus { outline: 2px solid var(--primario-suave); border-color: var(--primario); }
+.campo textarea { resize: vertical; }
+.fila-datos { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0 14px; }
+.datos-cliente { border: 1px solid var(--borde); border-radius: 8px; padding: 12px 16px 2px; margin: 4px 0 18px; }
+.datos-cliente legend { padding: 0 6px; font-size: 0.8rem; color: var(--suave); text-transform: uppercase; letter-spacing: 0.04em; }
+.rejilla-campos { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0 14px; }
+.barra-tabla { display: flex; gap: 14px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 4px; }
+.campo-busqueda { flex: 1 1 240px; margin-bottom: 14px; }
+.agregar { display: flex; gap: 8px; margin-bottom: 14px; flex: 2 1 320px; }
+.agregar select { flex: 1; min-width: 0; padding: 8px 10px; border: 1px solid var(--borde); border-radius: 6px; font-size: 0.9rem; background: #fff; }
+
+/* ---------- Tablas ---------- */
+.tabla-scroll { overflow-x: auto; border: 1px solid var(--borde); border-radius: 8px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { padding: 9px 10px; text-align: left; vertical-align: top; }
+thead th { background: var(--primario); color: #fff; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; position: sticky; top: 0; }
+tbody tr { border-top: 1px solid var(--borde-suave); }
+tbody tr:nth-child(even) { background: #fafbfc; }
+tbody tr:hover { background: var(--primario-suave); }
+.num { text-align: right; white-space: nowrap; }
+.col-num { width: 34px; color: var(--suave); }
+.col-acciones { width: 78px; white-space: nowrap; text-align: right; }
+.codigo { font-variant-numeric: tabular-nums; color: var(--suave); white-space: nowrap; }
+.importe { font-weight: 600; }
+td input[type='number'] { width: 66px; text-align: right; padding: 5px; border: 1px solid var(--borde); border-radius: 5px; }
+.nota-input { width: 100%; margin-top: 5px; padding: 5px 7px; border: 1px solid var(--primario); border-radius: 5px; font-size: 0.82rem; }
+.producto { font-weight: 600; }
+.detalle { color: var(--suave); font-size: 0.8rem; margin-top: 2px; }
+.detalle.nota { color: var(--primario); }
+.chip { display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 10px; font-size: 0.72rem; }
+.chip.media { background: #fef9c3; color: #854d0e; }
+.chip.baja { background: #fee2e2; color: #991b1b; }
+.vacio { text-align: center; color: var(--suave); padding: 22px; }
+tfoot td { background: #f5f7f9; border-top: 1px solid var(--borde); text-align: right; color: var(--suave); }
+tfoot .fila-total td { background: #eceff3; color: var(--texto); font-weight: 700; font-size: 1rem; }
+.conteo { color: var(--suave); font-size: 0.82rem; margin: 8px 0 16px; }
+
+/* ---------- Vista previa ---------- */
+.barra-previa { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.hoja { border: 1px solid var(--borde); border-radius: 8px; padding: 26px; }
+.hoja-encabezado { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; flex-wrap: wrap; border-bottom: 3px solid var(--primario); padding-bottom: 14px; }
+.empresa-nombre { font-size: 1.15rem; font-weight: 700; color: var(--primario); }
+.empresa-datos { color: var(--suave); font-size: 0.8rem; line-height: 1.6; margin-top: 4px; }
+.hoja-meta { text-align: right; color: var(--suave); font-size: 0.85rem; line-height: 1.6; }
+.hoja-meta h2 { color: var(--primario); font-size: 1.35rem; margin: 0 0 6px; letter-spacing: 0.04em; }
+.caja-cliente { background: #f7f8fa; border: 1px solid var(--borde); border-radius: 8px; padding: 14px 16px; margin: 18px 0; }
+.caja-cliente h3, .observaciones h3 { margin: 0 0 10px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primario); }
+.caja-cliente dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 6px 24px; margin: 0; }
+.caja-cliente dl > div { display: flex; gap: 8px; font-size: 0.87rem; }
+.caja-cliente dt { color: var(--suave); min-width: 78px; }
+.caja-cliente dd { margin: 0; font-weight: 500; overflow-wrap: anywhere; }
+.totales { margin-left: auto; margin-top: 16px; max-width: 320px; }
+.totales div { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; }
+.totales .total { border-top: 2px solid var(--primario); color: var(--primario); font-weight: 700; font-size: 1.15rem; margin-top: 4px; padding-top: 10px; }
+.observaciones { margin-top: 22px; }
+.observaciones p { margin: 0; font-size: 0.88rem; white-space: pre-wrap; }
+.hoja-pie { margin: 22px 0 0; padding-top: 10px; border-top: 1px solid var(--borde); color: var(--suave); font-size: 0.78rem; }
+
+/* ---------- Avisos ---------- */
+.aviso { background: var(--aviso); border-color: var(--aviso-borde); }
+.aviso h2 { font-size: 1rem; }
+.aviso ul { margin: 0; padding-left: 20px; }
+.aviso li { margin: 4px 0; }
+
+@media (max-width: 700px) {
+  .barra-empresa-contacto { display: none; }
+  .hoja { padding: 16px; }
+  .hoja-meta { text-align: left; }
+  .agregar { flex-direction: column; }
+  .totales { max-width: none; }
+  .panel-cuerpo { padding: 14px; }
+}
